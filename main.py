@@ -105,7 +105,7 @@ esp8266_fan_speed{{room="office"}} {}
 # TYPE esp8266_fan_mode gauge
 esp8266_fan_mode{{room="office"}} {}
 """
-    return gen_response(200, tpl.format(temp, rpm, auto_speed))
+    return gen_response(200, tpl.format(temp, rpm, int(auto_speed)))
 
 
 def handle_method_not_allowed():
