@@ -1,6 +1,22 @@
 def do_connect():
-    SSID = "<setme>"
-    PASS = "<setme>"
+    try:
+        f = open("wifi_SSID")
+    except Exception as e:
+        print("Failed to open wifi_SSID file: {}".format(e))
+        exit(1)
+
+    SSID = f.read()
+    f.close()
+
+    try:
+        f = open("wifi_pass")
+    except Exception as e:
+        print("Failed to open wifi_pass file: {}".format(e))
+        exit(1)
+
+    PASS = f.read()
+    f.close
+
     import network
 
     sta_if = network.WLAN(network.STA_IF)
@@ -13,7 +29,4 @@ def do_connect():
     print("network config:", sta_if.ifconfig())
 
 
-# def do_install():
-#     import upip
-
-#     upip.install("urequests")
+do_connect()

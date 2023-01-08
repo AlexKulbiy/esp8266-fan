@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# File with WiFi credentials
+wifi_SSID
+wifi_pass

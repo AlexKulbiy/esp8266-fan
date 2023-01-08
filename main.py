@@ -66,7 +66,6 @@ def get_fan_rpm():
 
     time_low = machine.time_pulse_us(rpm_pin, 0)
     time_high = machine.time_pulse_us(rpm_pin, 1)
-    # print("DEBUG low is {} high is {}".format(time_low, time_high))
 
     if time_low < 0 or time_high < 0:
         return None
@@ -97,7 +96,7 @@ def handle_prom(temp, rpm):
     global auto_speed
     tpl = """# HELP esp8266_temperature Temperature in Network Closet in C
 # TYPE esp8266_temperature gauge
-esp8266_temperature{{room="office"}} {}
+esp8266_temperature{{room="office"}} {0:.2f}
 # HELP esp8266_fan_speed Fan speed in RPM
 # TYPE esp8266_fan_speed gauge
 esp8266_fan_speed{{room="office"}} {}
