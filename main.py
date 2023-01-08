@@ -117,7 +117,7 @@ def handle_not_found():
 
 def handle_setrpm(path):
     global auto_speed
-    # Format /setrpm/<percent>
+    # Format /setspeed/<percent>
     p_split = path.split("/setspeed/", 1)
     percent = 0
     try:
