@@ -131,3 +131,6 @@ dmypy.json
 # File with WiFi credentials
 wifi_SSID
 wifi_pass
+
+# vscode files
+.vscode
