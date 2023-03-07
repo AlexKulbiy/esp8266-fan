@@ -99,10 +99,10 @@ def handle_prom(temp, rpm):
 esp8266_temperature{{room="office"}} {0:.2f}
 # HELP esp8266_fan_speed Fan speed in RPM
 # TYPE esp8266_fan_speed gauge
-esp8266_fan_speed{{room="office"}} {}
+esp8266_fan_speed{{room="office"}} {1}
 # HELP esp8266_fan_mode Fan mode 1 - auto, 0 - manual
 # TYPE esp8266_fan_mode gauge
-esp8266_fan_mode{{room="office"}} {}
+esp8266_fan_mode{{room="office"}} {2}
 """
     return gen_response(200, tpl.format(temp, rpm, int(auto_speed)))
 
@@ -190,6 +190,7 @@ try:
         time.sleep_ms(750)
         # Only read first sensor for now
         temperature = ds_sensor.read_temp(roms[0])
+        print("Temperature is {} C".format(temperature))
 
         if auto_speed:
             set_fan_speed_temp(temperature)
