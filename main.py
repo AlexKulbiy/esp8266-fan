@@ -68,7 +68,7 @@ def get_fan_rpm():
     time_high = machine.time_pulse_us(rpm_pin, 1)
 
     if time_low < 0 or time_high < 0:
-        return None
+        return 0
 
     # Fan output waveform does two high/low cycles per revolution
     freq = (1000000 // (time_low + time_high)) // 2
